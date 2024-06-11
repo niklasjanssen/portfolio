@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protected Text Copier</title>
+    <title>WeakAuras</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
+            background-color: #121212;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
         }
         .item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         button {
-            margin-left: 10px;
+            background-color: #6200EE;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3700B3;
         }
     </style>
 </head>
@@ -21,7 +42,7 @@
     <h1>Text Copier with Password Protection</h1>
 
     <div class="item">
-        <span>Secret Text 1</span>
+        <span>Anchors</span>
         <button onclick="promptPassword(1)">Copy</button>
     </div>
     <div class="item">
