@@ -1,195 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSY WeakAuras</title>
-    <style>
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #FFFFFF;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        h1 {
-            margin-bottom: 40px;
-        }
-        .item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 300px;
-            margin-bottom: 20px;
-        }
-        .item span {
-            flex: 1;
-            text-align: left;
-        }
-        button {
-            background-color: #bf304d;
-            color: #FFFFFF;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-align: center; /* Center the icon */
-        }
-        button:hover {
-            background-color: #e86b8c;
-        }
-        .hidden {
-            display: none;
-        }
-        #password-modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #password-modal-content {
-            background-color: #333;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
-            border-radius: 10px;
-            text-align: center;
-            position: relative;
-        }
-        #password-modal-content input {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #888;
-            border-radius: 5px;
-            background-color: #222;
-            color: #fff;
-        }
-        #error-message {
-            color: red;
-            margin-top: -10px;
-            margin-bottom: 10px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="style.css"> <!-- Optional CSS -->
 </head>
 <body>
-    <div class="container">
-        <h1>FSY WeakAuras</h1>
-
-        <div class="item">
-            <span>Anchors</span>
-            <button id="button-1" onclick="promptPassword(1)">Copy</button>
-        </div>
-        <div class="item">
-            <span>Nerub-ar Palace</span>
-            <button id="button-2" onclick="promptPassword(2)">Copy</button>
-        </div>
-    </div>
-
-    <div id="password-modal" onclick="closeModal(event)">
-        <div id="password-modal-content" onclick="event.stopPropagation()">
-            <p>Enter the password:</p>
-            <input type="password" id="password-input" onkeydown="if(event.key === 'Enter') checkPassword()">
-            <p id="error-message">Incorrect password!</p>
-            <button onclick="checkPassword()">Submit</button>
-        </div>
-    </div>
-
-    <script>
-        const passwords = {
-            1: 'p1',
-            2: 'p2'
-        };
-
-        const texts = {
-            1: 'This is secret text 1',
-            2: 'This is secret text 2'
-        };
-
-        let currentId = null;
-
-        function promptPassword(id) {
-            currentId = id;
-            document.getElementById('password-modal').style.display = 'flex';
-            document.getElementById('password-input').focus();
-        }
-
-        function checkPassword() {
-            const userPassword = document.getElementById('password-input').value;
-            const errorMessage = document.getElementById('error-message');
-            if (userPassword === passwords[currentId]) {
-                const button = document.getElementById(`button-${currentId}`);
-                button.innerHTML = '<i class="fas fa-copy"></i>';  // Copy icon
-                button.onclick = function() {
-                    copyToClipboard(currentId);
-                    button.innerHTML = '<i class="fas fa-check"></i>';  // Checkmark icon
-                };
-                closeModal();
-            } else {
-                errorMessage.style.display = 'block';
-            }
-            document.getElementById('password-input').value = '';
-        }
-
-        function copyToClipboard(id) {
-            const text = texts[id];
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            const button = document.getElementById(`button-${id}`);
-            button.innerHTML = '<i class="fas fa-check"></i>';  // Checkmark icon
-
-            // Reset the checkmark icon when another button is clicked
-            setTimeout(() => {
-                button.innerHTML = 'Copy';  // Copy icon
-                button.onclick = function() {
-                    promptPassword(id);
-                };
-            }, 3000);
-        }
-
-        function closeModal(event) {
-            if (event) {
-                const modal = document.getElementById('password-modal');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            } else {
-                document.getElementById('password-modal').style.display = 'none';
-            }
-            document.getElementById('error-message').style.display = 'none';
-        }
-
-        window.onload = function() {
-            document.getElementById('password-modal').style.display = 'none';
-        };
-    </script>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+    <nav>
+      <ul>
+        {% for item in site.nav %}
+        <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Welcome to My Portfolio</h2>
+      <p>Explore my work, including custom WeakAuras, game development projects, and more.</p>
+    </section>
+    
+    <section>
+      <h3>Featured Project: WeakAuras</h3>
+      <img src="weakaura-preview.png" alt="WeakAura example">
+      <p>Click <a href="https://wago.io/">here</a> to view the full WeakAura strings and code.</p>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; {{ site.author }}. All rights reserved.</p>
+  </footer>
 </body>
 </html>
