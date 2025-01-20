@@ -3,37 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
-  <link rel="stylesheet" href="style.css"> <!-- Optional CSS -->
+  <title>Niklas Janßen Portfolio</title>
+  <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
   <header>
-    <h1>{{ site.title }}</h1>
-    <p>{{ site.description }}</p>
-    <nav>
-      <ul>
-        {% for item in site.nav %}
-        <li><a href="{{ item.url }}">{{ item.name }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+    <h1>Niklas Janßen Portfolio</h1>
   </header>
   
   <main>
+	<div class="video-container">
+		<iframe width="1903" height="750" src="https://www.youtube.com/embed/WymCuredzZA" title="Niklas Janßen Game Dev Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>
+        
     <section>
-      <h2>Welcome to My Portfolio</h2>
-      <p>Explore my work, including custom WeakAuras, game development projects, and more.</p>
-    </section>
-    
-    <section>
-      <h3>Featured Project: WeakAuras</h3>
-      <img src="weakaura-preview.png" alt="WeakAura example">
-      <p>Click <a href="https://wago.io/">here</a> to view the full WeakAura strings and code.</p>
+      <h2>WeakAuras</h2>
+      <img src="media\weakaura-preview.png" alt="WeakAura example">
     </section>
   </main>
   
   <footer>
-    <p>&copy; {{ site.author }}. All rights reserved.</p>
+    <p>&copy; Niklas Janßen. All rights reserved.</p>
   </footer>
 </body>
 </html>
