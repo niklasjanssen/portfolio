@@ -7,23 +7,145 @@
   <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+	<div class="sidebar">
+        <a href="#topic1">Game Dev</a>
+        <a href="#topic2">World of Warcraft</a>
+        <a href="#topic3">WeakAuras</a>
+    </div>
   <header>
     <h1>Niklas Janßen Portfolio</h1>
   </header>
   
   <main>
-	<div class="video-container">
+	<section id="topic1">
+      <h2>Game Dev</h2>
+	  <div class="video-container">
 		<iframe width="1903" height="750" src="https://www.youtube.com/embed/WymCuredzZA" title="Niklas Janßen Game Dev Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	</div>
-        
-    <section>
-      <h2>WeakAuras</h2>
-      <img src="media\weakaura-preview.png" alt="WeakAura example">
     </section>
+	
+        
+    <section id="topic2">
+      <h2>World of Warcraft</h2>
+      <h3>Guild</h3>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  
+	  <h3>Public Test Realm</h3>
+	</section>
+			
+	<section id="topic3">
+      <h2>WeakAuras</h2>
+      <img width="64" height="64" src="Media/weakauraslogo.png" alt="WeakAura example">
+	  <h3>Examples</h3>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  
+    </section>
+	
   </main>
-  
-  <footer>
-    <p>&copy; Niklas Janßen. All rights reserved.</p>
-  </footer>
+	<footer class="footer">
+		<div class="footer-container">
+        <p>Connect with me:</p>
+        <div class="social-links">
+            <a href="https://x.com/calamity_wow" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
+                <img width="42" height="42" src="Media/X_logo.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/in/niklas-janßen-8346ba198" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                <img width="42" height="42" src="Media/LI-In-Bug.png" alt="LinkedIn">
+            </a>
+            <a href="mailto:nklsjanssen@gmail.com" aria-label="Email" rel="noopener noreferrer">
+                <img width="42" height="42" src="Media/envelope-regular.svg" alt="Email">
+            </a>
+        </div>
+		</div>
+	</footer>
 </body>
+<script>
+    // Highlight the active link while scrolling
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".sidebar a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 50; // Adjust offset
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
 </html>

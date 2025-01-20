@@ -1,19 +1,10 @@
-title: "Your Name's Portfolio"
-description: "A showcase of my projects, including custom WeakAuras, Lua scripting, and game development."
-author: "Your Name"
+title: "Niklas Janßen's Portfolio"
+description: "A showcase of my projects, including Game Dev, custom WeakAuras and Lua scripts."
+author: "Niklas Janßen"
 baseurl: "" # Leave blank for GitHub Pages root
-url: "https://yourusername.github.io" # Replace with your GitHub Pages URL
+url: "https://niklasjanssen.github.io" # Replace with your GitHub Pages URL
 theme: jekyll-theme-minimal # Or another theme
 markdown: kramdown
-
-# Navigation links
-nav:
-  - name: Home
-    url: "/"
-  - name: Projects
-    url: "/projects"
-  - name: Contact
-    url: "/contact"
 
 # Plugins (optional, for advanced features)
 plugins:
