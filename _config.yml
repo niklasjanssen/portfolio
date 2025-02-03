@@ -1,12 +1,12 @@
 title: "Niklas Janßen's Portfolio"
 description: "A showcase of my projects, including Game Dev, custom WeakAuras and Lua scripts."
 author: "Niklas Janßen"
-baseurl: "" # Leave blank for GitHub Pages root
-url: "https://niklasjanssen.github.io" # Replace with your GitHub Pages URL
-theme: jekyll-theme-minimal # Or another theme
+baseurl: "" 
+url: "https://niklasjanssen.github.io" 
+theme: jekyll-theme-minimal 
 markdown: kramdown
 
-# Plugins (optional, for advanced features)
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
