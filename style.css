@@ -79,16 +79,37 @@ footer {
         font-weight: bold;
     }
 .sidebar a:hover {
-    background-color: #575757; /* Highlight on hover */
+    background-color: #575757; 
 }
+
+code {
+	display: block;
+    max-width: 100%; 
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
 section {
+	text-align: center;
+	margin-left: 30%;
+	margin-right: 30%;
     margin-bottom: 50px;
     padding: 20px;     
     background: #000000;
 	color: white;
 }
+
 section h2 {
-    margin-top: 0;
+    margin-top: 20px;
+	color: #9c2a2a;
+}
+section h3 {
+    margin-top: 20px;
+	color: #9e3c3c;
+}
+section h4 {
+    margin-top: 20px;
+	color: #9e4949;
 }
 
 .socials-container {
@@ -104,7 +125,7 @@ section h2 {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 15px; /* Spacing between icons */
+    gap: 15px; 
 }
 
 .social-links a {
@@ -117,7 +138,7 @@ section h2 {
 	vertical-align:center;
     width: 100%;
     height: auto;
-    filter: invert(1); /* White icons for dark background */
+    /*filter: invert(1); /* White icons for dark background */
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 

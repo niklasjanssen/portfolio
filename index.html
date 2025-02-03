@@ -9,9 +9,9 @@
 <body>
 	<div class="sidebar">
 		<h3>Niklas Janßen Portfolio</h3>
-        <a href="#topic1">Game Dev</a>
-        <a href="#topic2">World of Warcraft</a>
-        <a href="#topic3">WeakAuras</a>
+        <a href="#Game-Dev">Game Dev</a>
+        <a href="#WoW">World of Warcraft</a>
+        <a href="#WA">WeakAuras</a>
 		<div class="socials-container">
 			<div class="social-links">
 				<a href="https://x.com/calamity_wow" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
@@ -28,7 +28,7 @@
     </div>
    
   <main>
-	<section id="topic1">
+	<section id="Game-Dev">
       <h2>Game Dev</h2>
 	  <div class="video-container">
 		<iframe width="1903" height="750" src="https://www.youtube.com/embed/WymCuredzZA" title="Niklas Janßen Game Dev Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -36,21 +36,23 @@
     </section>
 	
         
-    <section id="topic2">
+    <section id="WoW">
       <h2>World of Warcraft</h2>
-      <h3>Guild</h3>
+	  
 	  <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">After 12 years, the very first FSY meetup happened this weekend in Denmark 🦈🦈 <br><br>Insane massive shout out to <a href="https://twitter.com/LoozyWoW?ref_src=twsrc%5Etfw">@LoozyWoW</a> for hosting 💙 <a href="https://t.co/33JYw3ucRy">pic.twitter.com/33JYw3ucRy</a></p>&mdash; FatSharkYes (@Fatsharkyes) <a href="https://twitter.com/Fatsharkyes/status/1809724169376133194?ref_src=twsrc%5Etfw">July 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	  <p>
-	  I have been playing World of Warcraft competitively since 2022. I was a part of the guild "MNM" until early 2023 and afterwards joined "FatSharkYes". With my current guild i placed 6th, 6th and 8th in the last three Races to World First, where guilds compete to defeat the final boss of a newly released raid as fast as possible.
+	  I have been playing World of Warcraft competitively since 2022. I was a part of the guild "MNM" until early 2023 and afterwards joined "FatSharkYes". With my current guild I placed 6th, 6th and 8th in the last three Races to World First, where guilds compete to defeat the final boss of a newly released raid as fast as possible.
 	  <br>
 	  Playing in such a competitive environment its an absolute must to be able to take criticism and give helpful feedback, work in high pressure situations, communicate well, work together as a team and problem solve.
 	  
 	  </p>
 	  <h3>Public Test Realm</h3>
+	  <p>
 	  Testing upcomming Boss Encounters while they are in development on the Public Test Realm (PTR) is a part of preparing for the Race to World First. On the PTR the developers form Blizzard are able to spectate us and gather data on their encounters. After an hour long testing period per boss guilds can give feedback and report bugs. I have been testing upcoming raids on the PTR since 2020 and have reported countless bugs over the years.
+	  </p>
 	</section>
 			
-	<section id="topic3">
+	<section id="WA">
       <h2>WeakAuras</h2>
 	  <img width="64" height="64" src="Media/weakauraslogo.png" alt="WeakAura example">
 	  <p>
@@ -92,12 +94,13 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
-
-	<h4>Code</h4>
 	
+	<h4>Main Trigger Function</h4>
+	</section>
 	  <pre><code class="language-lua">
 function(allstates, event, _, subEvent, _, sourceGUID, _, _, _, destGUID, _, _, _, spellId, ...)
-	-- the OPTIONS event is used to display a fake list to show what the WeakAura looks like and so that the user can position the list on their screen before the boss encounter
+	-- the OPTIONS event is used to display a fake list to show what the WeakAura looks like 
+	-- and so that the user can position the list on their screen before the boss encounter
     if event == "OPTIONS" then
 		-- creating 5 fake states that are only shown while the AddOns options are open
         for i=1, 5 do 
@@ -197,7 +200,7 @@ function(allstates, event, _, subEvent, _, sourceGUID, _, _, _, destGUID, _, _, 
 			--iterating over sorted table to create states (list)
             for i, destGUID in pairs(aura_env.players) do
                 if destGUID then
-					--assigning who dispels who
+					--assigning who dispels who by putting dispeller at the end of the list
                     local dispeller = ""
                     if i > #aura_env.dispelOrderCopy then
                         dispeller = aura_env.dispelOrderCopy[i-#aura_env.dispelOrderCopy]
@@ -228,7 +231,8 @@ function(allstates, event, _, subEvent, _, sourceGUID, _, _, _, destGUID, _, _, 
                     local s = allstates[destGUID]
 				
                     WeakAuras.ScanEvents("FSY_TINDRAL_ORDER_DISPLAY", s.unit, s.pos, true) --updating raid frame text order
-                    if UnitIsUnit("player", s.unit) then --if current debuffed unit is me then update my display aura with position, and if im up next or second in line etc
+                    if UnitIsUnit("player", s.unit) then --if current debuffed unit is me then update my display aura with position
+					--and if im up next or second in line etc
                         WeakAuras.ScanEvents("FSY_TINDRAL", s.pos, s.pos == 1, s.pos == 2)
                     end
                 end
@@ -239,7 +243,7 @@ function(allstates, event, _, subEvent, _, sourceGUID, _, _, _, destGUID, _, _, 
 end
 </code></pre>
 
-    </section>
+    
 	
   </main>
 	
